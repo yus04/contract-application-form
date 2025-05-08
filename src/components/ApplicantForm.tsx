@@ -89,19 +89,40 @@ export default function ApplicantForm() {
               onChange={e => update('basicInfo.furigana', e.target.value)}
             />
           </label>
-          <label>
-            性別
-            <select
-              required
-              value={form.basicInfo.gender}
-              onChange={e => update('basicInfo.gender', e.target.value)}
-            >
-              <option value="">選択してください</option>
-              <option value="男性">男性</option>
-              <option value="女性">女性</option>
-              <option value="その他">その他</option>
-            </select>
-          </label>
+          <label>性別</label>
+          <div className="radio-group">
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="男性"
+                required
+                checked={form.basicInfo.gender === '男性'}
+                onChange={() => update('basicInfo.gender', '男性')}
+              />
+              男性
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="女性"
+                checked={form.basicInfo.gender === '女性'}
+                onChange={() => update('basicInfo.gender', '女性')}
+              />
+              女性
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="その他"
+                checked={form.basicInfo.gender === 'その他'}
+                onChange={() => update('basicInfo.gender', 'その他')}
+              />
+              その他
+            </label>
+          </div>
           <label>
             生年月日
             <input
